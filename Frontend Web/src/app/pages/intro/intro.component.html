@@ -1,0 +1,68 @@
+<nav>
+    <img src="../assets/intro-logo.png" class="logo">
+    <div class="nav-links" *ngFor="let link of links">
+            <a type="button" routerLinkActive="active" routerLink={{link.url}}>{{link.name}}</a>
+    </div>
+    <button *ngIf="!currentUser" routerLink = '/register' style="height: 40px; transform: translateY(10px); margin-left: 15%;" type="button" class="btn btn-outline-danger">Sign up/Login</button>
+    <button *ngIf="currentUser" (click) = "logoutClick()" style="height: 40px; transform: translateY(10px); margin-left: 15%;" type="button" class="btn btn-outline-danger">Log Out</button>
+
+</nav>
+<div class="main">
+    <div class="word">
+        <div class="letter">M</div>
+        <div class="letter">O</div>
+        <div class="letter">V</div>
+        <div class="letter">I</div>
+        <div class="letter">E</div>
+        <div class="letter">C</div>
+        <div class="letter">H</div>
+        <div class="letter">I</div>
+        <div class="letter">E</div>
+        <div class="letter">F</div>
+    </div>
+</div>
+<form class="search-div" id ="searchForm">
+<input type="text" placeholder="Search anything.." class="search">
+</form>
+
+
+<div class="shareus">
+
+<button type="button" *ngFor="let shareLink of shareLinks" class="btn btn-primary">{{shareLink}}</button>
+
+</div>
+
+<div class="browse">
+<button type="button" class="btn btn-outline-warning" (click) = 'browseClicked()'>Browse More</button>
+</div>
+
+<div class="desc">
+    <p>Our site is a comprehensive review and rating platform that helps users make informed decisions about
+        products and services. </p>
+    <ul>
+        <li>Detailed reviews from real users that provide valuable insights into the pros and cons of a product or
+            service.
+        </li>
+        <li>A user-friendly interface that makes it easy to browse and search for reviews on a wide range of
+            products and services.
+        </li>
+        <li>Regular updates and new content that keep our site freshshars and relevant.</li>
+        <li>A community of like-minded users who are passionate about sharing their experiences and helping others
+            make informed decisions.
+        </li>
+    </ul>
+</div>
+
+<footer>
+    <div class="complaint-h">
+        <h2>Any Complaints? Let Us Know!</h2>
+    </div>
+    <div class="complaint-sub">
+        <input #complaintValue [(ngModel)]="complaintText" type="email" class="form-control" class="complain">
+        <button (click) = "giveComplaint(complaintValue.value)" type="button" class="btn btn-outline-light">Submit</button>
+    </div>
+    <p style="margin-top: 2%; font-size: 18px;">&copy; 2023 MovieChief. All rights reserved.</p>
+</footer>
+
+
+

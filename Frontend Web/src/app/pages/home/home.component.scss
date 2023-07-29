@@ -1,0 +1,200 @@
+nav{
+    background: linear-gradient(to top right, gold, rgb(219, 121, 121));
+}
+.nav-links a{
+    color: black;
+}
+.nav-links a:hover{
+    color: red;
+}
+html, body{
+    background-color: none;
+}
+.moviesh{
+    margin-top: 650px;
+}
+.container{
+    display:grid;
+    gap:10px;
+    grid-template-columns: repeat(auto-fill,minmax(244px,1fr));
+    grid-auto-rows: auto;
+    margin-top:5px;
+    padding:20px;
+}
+.user-info a{
+    cursor: pointer; 
+    text-decoration: none;
+    color: rgb(4, 0, 0);
+}
+.user-info a:hover{
+    text-decoration: underline;
+    color: red;
+}
+ .movie-img{
+    width:100%;
+    height:361px;
+    
+}
+.movie-card{
+    color: #f5eeee;
+    height: fit-content;
+    position: relative;
+    
+}
+
+.movie-img{
+    max-height: 600px;
+}
+.movie-name {
+  position: absolute;
+  margin:0px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, );
+  color: #fff;
+  padding:10px;
+  box-sizing: border-box;
+}
+.popular {
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+
+.popular-title {
+    color: white;
+    text-align: center;
+    font-family: Bellota, serif;
+}
+
+.popular-top {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.popular-top a {
+    text-decoration: none;
+    color: gold;
+}
+
+.popular-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.mandalorian{
+    transform: translateX(-100px);
+
+}
+.mandalorian a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+}
+.mandalorian span:last-child {
+    width: 400px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: right;
+  }
+
+.mandalorian a span:hover {
+    color: lightskyblue;
+}
+
+.mandalorian span {
+    color: white;
+}
+.mandalorian span svg {
+    transform: translateY(-3px);
+}
+hr {
+    opacity: 0.3;
+    height: 0.3px;
+    margin: 10px 0px;
+    transform: translateX(0px);
+}
+
+.popular-end {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.popular-end a {
+    text-decoration: none;
+    color: gold;
+    font-size: 1.3rem;
+}
+.complain-button {
+    font-size: 14px;
+    padding: 10px 20px;
+    background: royalblue;
+    color: white;
+    border-radius: 16px;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    border: none;
+}
+
+footer{
+    margin-top: 70px;
+    padding-top: 40px;
+    padding-bottom: 15px;
+    background-color: #404040;
+}
+.foot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.about-us{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 50%;
+    padding-left: 250px;
+    margin: 0 auto;
+}
+.about-us-top h2{
+    color: white;
+    margin-bottom: 20px;
+    transform: translateX(-5px);
+}
+.foot-links{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.foot-links a{
+    color: white;
+    text-decoration: none;
+}
+.foot-links a:hover{
+    color: red;
+}
+.foot-copy{
+    color: white;
+}
+.complaint{
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    margin-left: 250px;
+    padding-right: 0px;
+}
+.complaint form textarea{
+    width: 250px;
+    height: 40px;
+}
+
+.complaint p{
+    color: white;
+    margin-bottom: 10px;
+}

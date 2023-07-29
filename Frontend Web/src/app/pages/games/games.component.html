@@ -1,0 +1,29 @@
+<nav>
+    <img src="../assets/intro-logo.png" class="logo" routerLink = '/'>
+    <div class="nav-links" *ngFor="let link of links">
+            <a type="button"  routerLinkActive="active" routerLink={{link.url}}>{{link.name}}</a>
+    </div>
+</nav>
+<div *ngFor="let game of gamess">
+    <div class="movies">
+      <div class="area-name">
+        <h1><span class="title">{{ game.category | titlecase }}</span></h1>
+      </div>
+      <div class="container">
+        <div class="movie-card" *ngFor="let gameData of game.data">
+          <a [href]="">
+            <img class="movie-img" [src]="gameData.background_image" alt="game poster">
+          </a>
+          <div class="movie-info">
+            <h1>{{ gameData.name }}</h1>
+          </div>
+          <div class="movie-ratings">
+            <p>Release Date: {{ gameData.released }}</p>
+            <p>Rating: {{ gameData.rating }}</p>
+          </div>
+          <div class="div-button"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

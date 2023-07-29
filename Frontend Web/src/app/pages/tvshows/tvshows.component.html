@@ -1,0 +1,28 @@
+<nav>
+    <img src="../assets/intro-logo.png" class="logo" routerLink = '/'>
+    <div class="nav-links" *ngFor="let link of links">
+            <a type="button"  routerLinkActive="active" routerLink={{link.url}}>{{link.name}}</a>
+    </div>
+</nav>
+<div *ngFor="let tvshow of tvshowss">
+    <div class="movies">
+      <div class="area-name">
+        <h1><span class="title">{{ tvshow.category | titlecase }}</span></h1>
+      </div>
+      <div class="container">
+        <div class="movie-card" *ngFor="let tvshowData of tvshow.data">
+          <a [href]="">
+            <img class="movie-img" [src]="'https://image.tmdb.org/t/p/w500' + tvshowData.poster_path" alt="movie poster">
+          </a>
+          <div class="movie-info">
+            <h1>{{ tvshowData.title }}</h1>
+          </div>
+          <div class="movie-ratings">
+            <p>Release Date: {{ tvshowData.first_air_date }}</p>
+            <p>Rating: {{ tvshowData.vote_average }}</p>
+          </div>
+          <div class="div-button"></div>
+        </div>
+      </div>
+    </div>
+  </div>

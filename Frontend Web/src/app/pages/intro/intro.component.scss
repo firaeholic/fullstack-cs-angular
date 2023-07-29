@@ -1,0 +1,14 @@
+$blue: rgb(3, 3, 153);
+$cyan: rgb(170, 234, 234);
+
+body{
+    background-color: rgb(50, 33, 33);;
+    height: 100vh;
+    font-family:'Times New Roman', Times, serif;
+}
+.nav-links a{
+    color: black;
+}
+.nav-links a:hover{
+    color: red;
+}

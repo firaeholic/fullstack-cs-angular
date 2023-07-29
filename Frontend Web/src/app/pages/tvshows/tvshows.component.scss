@@ -1,0 +1,40 @@
+body{
+    margin:0px;
+    background-color: #242424;
+    color:white;
+    font-family: 'Poppins', sans-serif;
+}
+.container{
+    display:grid;
+    gap:10px;
+    grid-template-columns: repeat(auto-fill,minmax(244px,1fr));
+    grid-auto-rows: auto;
+    margin-top:5px;
+    padding:20px;
+}
+ .movie-img{
+    width:100%;
+    height:361px;
+    
+}
+.movie-card{
+    color: #f5eeee;
+    height: fit-content;
+    position: relative;
+    
+}
+
+.movie-img{
+    max-height: 600px;
+}
+.movie-name {
+  position: absolute;
+  margin:0px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, );
+  color: #fff;
+  padding:10px;
+  box-sizing: border-box;
+}

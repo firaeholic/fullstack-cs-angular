@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="image-section"></div>
+    <div class="form-section">
+        <h1 style="text-align: center;">Create an Account</h1>
+        <form>
+
+            <label for="name">Full Name</label>
+            <input #fullnameValue type="text" id="name" name="name" required>
+            <label for="email">Email</label>
+            <input #emailValue type="email" id="email" name="email" required>
+            <label for="username">Username</label>
+            <input #usernameValue type="text" id="username" name="username" required>
+            <label for="password">Password</label>
+            <input #passwordValue type="password" id="password" name="password" required>
+            <button (click) = 'registerUser(fullnameValue.value, usernameValue.value, emailValue.value, passwordValue.value)' type="submit">Register</button>
+            <input type="hidden" name="action" value="register">
+        </form>
+        <p class="login-link">Already have an account? <a routerLink = '/login'>Login</a></p>
+    </div>
+
+</div>

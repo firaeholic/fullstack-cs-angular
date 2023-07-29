@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="image-section"></div>
+    <div class="form-section">
+        <h1>Login</h1>
+        <form>
+            <label for="email">Email</label>
+            <input #email type="email" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input #password type="password" id="password" name="password" required>
+            <button (click) = "logUser(email.value, password.value)" type="submit">Login</button>
+            <input type="hidden" name="action" value="login">
+        </form>
+        <p class="register-link">Don't have an account? 
+            <button (click) = "registerClicked()">Register</button>
+        </p>
+    </div>
+</div>
