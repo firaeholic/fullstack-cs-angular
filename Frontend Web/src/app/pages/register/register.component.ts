@@ -9,13 +9,17 @@ import UserModel from 'src/app/models/User';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+  fullname: string = '';
+  username: string = '';
+  email: string = '';
+  password: string = ''
+  
   constructor(
     private router : Router,
     private activatedRoute: ActivatedRoute,
     private userService: UserService
-  ) {
-    
-  }
+  ) { }
+  
   registerUser(fullname: string, username: string, email: string, password: string){
     if(fullname && username && email && password){
       this.userService.registerAUser(fullname, username, email, password).subscribe(
@@ -28,4 +32,15 @@ export class RegisterComponent {
       alert("Fill all fields!")
     }
   }
+  checkIfEmailExists(fullname: string, username: string, email: string, password: string) {
+    this.userService.emailExist(email).subscribe(
+      (checkedUser: UserModel) => {
+        alert("Email already in use.")
+      },
+       (error) => {
+          this.registerUser(fullname, username, email, password)
+      }
+    )
+  }
 }
+

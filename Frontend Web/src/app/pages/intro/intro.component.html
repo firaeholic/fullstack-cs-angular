@@ -3,7 +3,7 @@
     <div class="nav-links" *ngFor="let link of links">
             <a type="button" routerLinkActive="active" routerLink={{link.url}}>{{link.name}}</a>
     </div>
-    <button *ngIf="!currentUser" routerLink = '/register' style="height: 40px; transform: translateY(10px); margin-left: 15%;" type="button" class="btn btn-outline-danger">Sign up/Login</button>
+    <button *ngIf="!currentUser" routerLink = '/login' style="height: 40px; transform: translateY(10px); margin-left: 15%;" type="button" class="btn btn-outline-danger">Sign up/Login</button>
     <button *ngIf="currentUser" (click) = "logoutClick()" style="height: 40px; transform: translateY(10px); margin-left: 15%;" type="button" class="btn btn-outline-danger">Log Out</button>
 
 </nav>

@@ -4,7 +4,7 @@
             <a type="button"  routerLinkActive="active" routerLink={{link.url}} routerLinkActive = 'active'>{{link.name}}</a>
     </div>
     <div class="user-info" style="height: 40px; transform: translateY(20px); margin-left: 16%;">
-      <a href="" *ngIf="currentUser">{{ currentUser.fullName }}</a>
+      <a routerLink="/account" *ngIf="currentUser">{{ currentUser.fullName }}</a>
     </div>
 </nav>
 <div class="slider" (mouseover)="stopSlider()" (mouseout)="startSlider()">

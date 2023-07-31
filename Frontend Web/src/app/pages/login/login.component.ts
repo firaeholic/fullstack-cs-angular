@@ -32,7 +32,7 @@ export class LoginComponent {
       },
       error: error => {
         if (error.status === 404) {
-          alert('Email not found.');
+          alert('Incorrect Email or Password.');
         } else {
           alert(error)
         }

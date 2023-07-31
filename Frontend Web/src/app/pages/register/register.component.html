@@ -12,7 +12,8 @@
             <input #usernameValue type="text" id="username" name="username" required>
             <label for="password">Password</label>
             <input #passwordValue type="password" id="password" name="password" required>
-            <button (click) = 'registerUser(fullnameValue.value, usernameValue.value, emailValue.value, passwordValue.value)' type="submit">Register</button>
+            <button (click) = 'checkIfEmailExists(fullnameValue.value, usernameValue.value, emailValue.value, passwordValue.value)
+            ' type="submit">Register</button>
             <input type="hidden" name="action" value="register">
         </form>
         <p class="login-link">Already have an account? <a routerLink = '/login'>Login</a></p>

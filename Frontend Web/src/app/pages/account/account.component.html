@@ -1,0 +1,14 @@
+<div class="container" *ngIf="currentUser">
+    <h2>Account Information</h2><br><br>
+    <div class="info">
+        <h3>Full Name:</h3>
+        <p class="nameVal"><i>{{currentUser.fullName}}</i></p>
+        <h3>Email:</h3>
+        <p class="emailVal"><i>{{currentUser.email}}</i></p>
+        <h3>Username:</h3>
+        <p class="userVal"><i>{{currentUser.userName}}</i></p>
+    </div>
+    <button (click) = "logoutClick()" type="button" class="btn btn-primary">Log Out</button>
+    <button (click) = "deleteAccount(currentUser.email)" type="button" class="btn btn-outline-danger">Delete Account</button>
+</div>
+<div *ngIf="!currentUser" class="login">You are not logged in!</div>

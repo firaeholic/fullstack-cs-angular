@@ -7,6 +7,8 @@ import {TvshowComponent} from './pages/tvshows/tvshows.component';
 import { GamesComponent } from './pages/games/games.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AccountComponent } from './pages/account/account.component';
+
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: '', component: IntroComponent},
@@ -14,8 +16,8 @@ const routes: Routes = [
   {path: 'tvshows', component: TvshowComponent},
   {path: 'games', component: GamesComponent},
   {path: 'login', component:LoginComponent},
-  {path: 'register', component:RegisterComponent}
-
+  {path: 'register', component:RegisterComponent},
+  {path: 'account', component:AccountComponent}
 
 ];
 
