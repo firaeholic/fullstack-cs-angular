@@ -32,7 +32,7 @@
       <h1><span class="title">{{ movie.category | titlecase }}</span></h1>
     </div>
     <div class="container">
-      <div class="movie-card" *ngFor="let movieData of movie.data">
+      <div [routerLink]="['/movie_detail', movieData.id]" class="movie-card" *ngFor="let movieData of movie.data">
         <a [href]="">
           <img class="movie-img" [src]="'https://image.tmdb.org/t/p/w500' + movieData.poster_path" alt="movie poster">
         </a>
@@ -40,7 +40,11 @@
           <h1>{{ movieData.title }}</h1>
         </div>
         <div class="movie-ratings">
-          <p>Genre: {{ getGenreName(movieData.genre_ids[0]) | async }}</p>
+          <p *ngFor="let genre of genres">Genres: 
+            <ng-container *ngFor="let genreId of movieData.genre_ids.slice(0, 3)">
+              <span>{{ getaGenreName(genreId) | async }}</span>
+            </ng-container>
+          </p>
           <p>Release Date: {{ movieData.release_date }}</p>
           <p>Rating: {{ movieData.vote_average }}</p>
         </div>

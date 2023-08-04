@@ -1,0 +1,14 @@
+
+.container-mov{
+    box-sizing: border-box;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right, blue, rgb(38, 94, 77));
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.movied-img{
+    width:25%;
+    height: 25%;
+}

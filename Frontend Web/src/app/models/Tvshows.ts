@@ -1,5 +1,5 @@
 export interface Tvshow {
-    title: string;
+    name: string;
     poster_path: string;
     first_air_date: string;
     vote_average: number;

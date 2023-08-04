@@ -8,6 +8,7 @@ import { GamesComponent } from './pages/games/games.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AccountComponent } from './pages/account/account.component';
+import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -17,7 +18,9 @@ const routes: Routes = [
   {path: 'games', component: GamesComponent},
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegisterComponent},
-  {path: 'account', component:AccountComponent}
+  {path: 'account', component:AccountComponent},
+  {path: 'movie_detail/:movieData.id', component:MovieDetailComponent}
+
 
 ];
 

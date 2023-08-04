@@ -12,7 +12,8 @@ import { TvshowComponent } from './pages/tvshows/tvshows.component';
 import { GamesComponent } from './pages/games/games.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { AccountComponent } from './pages/account/account.component'
+import { AccountComponent } from './pages/account/account.component';
+import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AccountComponent } from './pages/account/account.component'
     LoginComponent,
     RegisterComponent,
     AccountComponent,
+    MovieDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+<div class="container-mov" [style.background-image]="'url(https://image.tmdb.org/t/p/w500' + (movie?.backdrop_path || '') + ')'">
+    <a>
+        <img class="movied-img" [src]="'https://image.tmdb.org/t/p/w500' + movie?.poster_path" alt="movie poster">
+      </a>
+    <h1>{{ movie?.title }}</h1>
+    <p>Release Date: {{ movie?.release_date }}</p>
+    <p>Rating: {{ movie?.vote_average }}</p>
+    <p>Genre: {{ movie?.genre_ids }}</p>
+    <p>Popularity: {{movie?.popularity}}</p>
+    <div>Overview: 
+        <p>{{ movie?.overview }}</p>
+    </div>
+
+  </div>

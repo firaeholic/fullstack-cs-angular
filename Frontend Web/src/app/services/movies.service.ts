@@ -27,13 +27,13 @@ export class MovieService {
     return this.http.get(url);
   }
 
-  getGenreName(genre_Id: number): Observable<string | null> {
-    return this.http.get(`${this.baseUrl}/genre/movie/list?api_key=${this.apiKey}&language=en-US`)
+  getGenreName(genreId: number){
+    return this.http.get(`${this.baseUrl}/genre/movie/list?api_key=${this.apiKey}`)
       .pipe(
         map((response: any) => {
           const genres = response.genres;
-          const genre = genres.find((g: { id: number; }) => g.id === genre_Id);
-          return genre ? genre.name : null;
+          const genre = genres.find((g: { id: number; }) => g.id === genreId);
+          return genre ? genre.name : "null";
         })
       );
   }

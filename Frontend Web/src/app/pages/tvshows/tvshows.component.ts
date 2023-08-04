@@ -29,6 +29,7 @@ export class TvshowComponent implements OnInit {
     this.categories.forEach(category => {
       this.tvshowService.getMovies(category).subscribe(data => {
         this.tvshowss.push({ category, data: data.results });
+        console.log(data)
       });
     });
   }

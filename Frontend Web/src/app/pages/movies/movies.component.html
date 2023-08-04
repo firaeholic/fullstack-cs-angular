@@ -10,7 +10,7 @@
         <h1><span class="title">{{ movie.category | titlecase }}</span></h1>
       </div>
       <div class="container">
-        <div class="movie-card" *ngFor="let movieData of movie.data">
+        <div [routerLink]="['/movie_detail', movieData.id]" class="movie-card" *ngFor="let movieData of movie.data">
           <a [href]="">
             <img class="movie-img" [src]="'https://image.tmdb.org/t/p/w500' + movieData.poster_path" alt="movie poster">
           </a>

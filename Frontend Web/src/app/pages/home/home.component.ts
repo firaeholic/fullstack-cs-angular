@@ -35,6 +35,7 @@ export class HomeComponent {
     this.categories.forEach(category => {
       this.movieService.getMovies(category).subscribe(data => {
         this.movies.push({ category, data: data.results });
+        console.log(data)
       });
     });
 
@@ -45,12 +46,9 @@ export class HomeComponent {
 
     
   }
-  getGenreName(genreId: number): Observable<string | null> {
+  getaGenreName(genreId: number) {
     return this.movieService.getGenreName(genreId);
-  }
-  
-  
-
+  } 
   
 
   slides: Slide[] = [
@@ -142,39 +140,5 @@ export class HomeComponent {
     }
   ]
   
-
-  cards: Cards[] = [
-    {
-      title: 'Red Dead Redemption',
-      url: '../assets/rdr2.jpg',
-      genre: ['Action, Adventure'],
-      release_date: new Date('2018-02-12')
-    },
-    {
-      title: 'Red Dead Redemption',
-      url: '../assets/rdr2.jpg',
-      genre: ['Action, Adventure'],
-      release_date: new Date('2018-02-12')
-    },
-    {
-      title: 'Red Dead Redemption',
-      url: '../assets/rdr2.jpg',
-      genre: ['Action, Adventure'],
-      release_date: new Date('2018-02-12')
-    },
-    {
-      title: 'Red Dead Redemption',
-      url: '../assets/rdr2.jpg',
-      genre: ['Action, Adventure'],
-      release_date: new Date('2018-02-12')
-    },
-    {
-      title: 'Red Dead Redemption',
-      url: '../assets/rdr2.jpg',
-      genre: ['Action, Adventure'],
-      release_date: new Date('2018-02-12')
-    }
-    
-  ]
 
 }
