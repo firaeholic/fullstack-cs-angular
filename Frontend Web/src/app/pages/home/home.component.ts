@@ -1,27 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import LinkModel from 'src/app/models/Links';
 import Slide from 'src/app/models/Slider';
-import Cards from 'src/app/models/Cards';
 import { MovieService } from '../../services/movies.service';
 import { Movie } from '../../models/Movies';
-import showList from '../../models/showlist'
-import { Observable } from 'rxjs';
+import showList from '../../models/showlist';
 import UserModel from 'src/app/models/User';
 
-
-
- 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
   categories = ['Trending'];
   movies: { category: string, data: Movie[] }[] = [];
   currentUser: UserModel | null = null;
-
 
   constructor(
     private movieService: MovieService
@@ -35,7 +29,7 @@ export class HomeComponent {
     this.categories.forEach(category => {
       this.movieService.getMovies(category).subscribe(data => {
         this.movies.push({ category, data: data.results });
-        console.log(data)
+        console.log(data);
       });
     });
 
@@ -44,13 +38,11 @@ export class HomeComponent {
       this.currentUser = JSON.parse(currentUserString);
     }
 
-    
   }
   getaGenreName(genreId: number) {
     return this.movieService.getGenreName(genreId);
   } 
   
-
   slides: Slide[] = [
     {
       image: '../assets/aquman.jpg',
@@ -75,9 +67,8 @@ export class HomeComponent {
   ];
 
   currentSlide = 0;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sliderInterval: any;
-
-  
 
   nextSlide(): void {
     this.currentSlide++;
@@ -106,15 +97,11 @@ export class HomeComponent {
   stopSlider(): void {
     clearInterval(this.sliderInterval);
   }
-
-
-
   
-  home: LinkModel = {name: 'Home', url: '/home'}
-  moviess: LinkModel = {name: 'Movies', url: '/movies'}
-  tvshows: LinkModel = {name: 'TV Shows', url: '/tvshows'}
-  games: LinkModel = {name: 'Games', url: '/games'}
-
+  home: LinkModel = {name: 'Home', url: '/home'};
+  moviess: LinkModel = {name: 'Movies', url: '/movies'};
+  tvshows: LinkModel = {name: 'TV Shows', url: '/tvshows'};
+  games: LinkModel = {name: 'Games', url: '/games'};
   links: LinkModel[] = [this.home, this.moviess,this.tvshows, this.games];
 
   showlists: showList[] = [
@@ -138,7 +125,5 @@ export class HomeComponent {
       title: 'It Takes Two',
       url: ''
     }
-  ]
-  
-
+  ];
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import LinkModel from 'src/app/models/Links';
-import { Router, ActivatedRoute,RouterLinkActive } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,26 +9,19 @@ import { Router, ActivatedRoute,RouterLinkActive } from '@angular/router';
 })
 export class AppComponent {
   title = 'Project';
-
-  home: LinkModel = {name: 'Home', url: '/home'}
-  movies: LinkModel = {name: 'Movies', url: '/movies'}
-  tvshows: LinkModel = {name: 'TV Shows', url: '/tvshows'}
-  games: LinkModel = {name: 'Games', url: '/games'}
-
+  home: LinkModel = {name: 'Home', url: '/home'};
+  movies: LinkModel = {name: 'Movies', url: '/movies'};
+  tvshows: LinkModel = {name: 'TV Shows', url: '/tvshows'};
+  games: LinkModel = {name: 'Games', url: '/games'};
   links: LinkModel[] = [this.home, this.movies,this.tvshows, this.games];
-
-  shareLinks: string[] = ['Facebook', 'Twitter', 'Instagram', 'Whatsapp']
+  shareLinks: string[] = ['Facebook', 'Twitter', 'Instagram', 'Whatsapp'];
 
   constructor(
     private router : Router,
     private activatedRoute: ActivatedRoute,
-    
-    ){  }
+  ){}
 
-  shareClicked(shareLink: string){
-
-  }
   browseClicked(){
-    this.router.navigate(['home'], {relativeTo: this.activatedRoute})
+    this.router.navigate(['home'], {relativeTo: this.activatedRoute});
   }
 }

@@ -11,10 +11,10 @@ export class ComplainService {
   constructor(private apiConfigService: ApiConfigService) { }
 
   getAllComplaints(): Observable<ComplaintModel[]>{
-    return this.apiConfigService.getComplaints('complaints')
+    return this.apiConfigService.getComplaints();
   }
   postAComplaint(complaint: string): Observable<ComplaintModel>{
-    let data = { 'complaintText': complaint }
-    return this.apiConfigService.postComplaint('complaints', data)
+    const data = { 'complaintText': complaint };
+    return this.apiConfigService.postComplaint('complaints', data);
   }
 }

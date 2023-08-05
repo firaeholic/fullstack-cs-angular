@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +22,6 @@ export class GamesService {
       url="https://api.rawg.io/api/games?page_size=20&key=c8750653a2754ea49bb6b6ff57ff592a&platforms=1,187,18,186,14&languages=en";
 
     }
-
     return this.http.get(url);
   }
-
 }

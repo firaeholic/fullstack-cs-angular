@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute, RouterLinkActive } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/user.service';
-import UserModel from 'src/app/models/User';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
 export class RegisterComponent {
   fullname: string = '';
   username: string = '';
   email: string = '';
-  password: string = ''
+  password: string = '';
   
   constructor(
     private router : Router,
@@ -23,24 +23,24 @@ export class RegisterComponent {
   registerUser(fullname: string, username: string, email: string, password: string){
     if(fullname && username && email && password){
       this.userService.registerAUser(fullname, username, email, password).subscribe(
-        (newUser: UserModel) => {
-          alert("User successfully created! Will direct to login page.")
-          this.router.navigate(['login'])
+        () => {
+          alert("User successfully created! Will direct to login page.");
+          this.router.navigate(['login']);
         }
-      )
+      );
     }else{
-      alert("Fill all fields!")
+      alert("Fill all fields!");
     }
   }
   checkIfEmailExists(fullname: string, username: string, email: string, password: string) {
     this.userService.emailExist(email).subscribe(
-      (checkedUser: UserModel) => {
-        alert("Email already in use.")
+      () => {
+        alert("Email already in use.");
       },
-       (error) => {
-          this.registerUser(fullname, username, email, password)
+       () => {
+          this.registerUser(fullname, username, email, password);
       }
-    )
+    );
   }
 }
 

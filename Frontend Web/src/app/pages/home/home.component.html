@@ -40,7 +40,7 @@
           <h1>{{ movieData.title }}</h1>
         </div>
         <div class="movie-ratings">
-          <p *ngFor="let genre of genres">Genres: 
+          <p>Genres: 
             <ng-container *ngFor="let genreId of movieData.genre_ids.slice(0, 3)">
               <span>{{ getaGenreName(genreId) | async }}</span>
             </ng-container>

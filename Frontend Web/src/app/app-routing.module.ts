@@ -20,8 +20,7 @@ const routes: Routes = [
   {path: 'register', component:RegisterComponent},
   {path: 'account', component:AccountComponent},
   {path: 'movie_detail/:movieData.id', component:MovieDetailComponent}
-
-
+  
 ];
 
 @NgModule({

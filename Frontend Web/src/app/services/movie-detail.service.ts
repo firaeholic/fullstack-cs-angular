@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -14,9 +13,7 @@ export class MovieDetailService {
 
   getMovie(id: number){
     let url = '';
-
-    url = `${this.baseUrl}/movie/${id}?api_key=${this.apiKey}`
-
+    url = `${this.baseUrl}/movie/${id}?api_key=${this.apiKey}`;
     return this.http.get(url);
   }
 }
