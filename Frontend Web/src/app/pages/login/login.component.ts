@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute, RouterLinkActive } from '@angular/router';
-import UserModel from 'src/app/models/User';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/user.service';
-
-
 
 @Component({
   selector: 'app-login',
@@ -11,8 +8,6 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
-
   
   constructor(
     private router : Router,
@@ -22,23 +17,24 @@ export class LoginComponent {
     
   }
   registerClicked(){
-    this.router.navigate(['register'])
+    this.router.navigate(['register']);
   }
+
   logUser(email: string, password: string){
     this.userService.getAUser(email, password).subscribe({
       next: user => {
+
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.router.navigate(['/home']);
       },
       error: error => {
+        
         if (error.status === 404) {
           alert('Incorrect Email or Password.');
         } else {
-          alert(error)
+          alert(error);
         }
       }
     });
   }
-
-
 }

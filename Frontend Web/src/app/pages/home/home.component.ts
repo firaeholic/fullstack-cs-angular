@@ -19,9 +19,7 @@ export class HomeComponent implements OnInit{
 
   constructor(
     private movieService: MovieService
-    
-    ) {
-   }
+    ) {}
 
   ngOnInit(): void {
     this.startSlider();
@@ -67,7 +65,6 @@ export class HomeComponent implements OnInit{
   ];
 
   currentSlide = 0;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sliderInterval: any;
 
   nextSlide(): void {

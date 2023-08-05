@@ -10,7 +10,6 @@ import { UserService } from 'src/app/user.service';
 })
 export class AccountComponent {
 
-
   currentUser: UserModel | null = null;
 
   constructor(
@@ -24,30 +23,28 @@ export class AccountComponent {
     if (currentUserString) {
       this.currentUser = JSON.parse(currentUserString);
     }
-
-    
   }
 
   logoutClick(){
     const currentUserString = localStorage.getItem('currentUser');
     if (currentUserString) {
-      localStorage.removeItem('currentUser')
-      this.currentUser = null
-      this.router.navigate(['home'])
+      localStorage.removeItem('currentUser');
+      this.currentUser = null;
+      this.router.navigate(['home']);
     }
   }
+
   deleteAccount(email: string){
       this.userService.deleteAuser(email).subscribe(
         () => {
           const currentUserString = localStorage.getItem('currentUser');
           if (currentUserString) {
-            localStorage.removeItem('currentUser')
-            alert("Account successfully deleted!")
-            this.currentUser = null
-            this.router.navigate(['home'])
+            localStorage.removeItem('currentUser');
+            alert("Account successfully deleted!");
+            this.currentUser = null;
+            this.router.navigate(['home']);
           }
         }
-      )
+      );
   }
-
 }

@@ -1,34 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import LinkModel from 'src/app/models/Links';
-import { Router, ActivatedRoute, RouterLinkActive } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ComplainService } from 'src/app/complain.service';
 import ComplaintModel from 'src/app/models/Complaint';
 import UserModel from 'src/app/models/User';
-
-
 
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss']
 })
-export class IntroComponent {
+export class IntroComponent implements OnInit{
 
-  home: LinkModel = {name: 'Home', url: '/home'}
-  movies: LinkModel = {name: 'Movies', url: '/movies'}
-  tvshows: LinkModel = {name: 'TV Shows', url: '/tvshows'}
-  games: LinkModel = {name: 'Games', url: '/games'}
-
-  links: LinkModel[] = [this.home, this.movies,this.tvshows, this.games]
-
-  shareLinks: string[] = ['Facebook', 'Twitter', 'Instagram', 'Whatsapp']
-
-  complaints: ComplaintModel[] = []
-
-  complaintText: string = ''
-
+  home: LinkModel = {name: 'Home', url: '/home'};
+  movies: LinkModel = {name: 'Movies', url: '/movies'};
+  tvshows: LinkModel = {name: 'TV Shows', url: '/tvshows'};
+  games: LinkModel = {name: 'Games', url: '/games'};
+  links: LinkModel[] = [this.home, this.movies,this.tvshows, this.games];
+  shareLinks: string[] = ['Facebook', 'Twitter', 'Instagram', 'Whatsapp'];
+  complaints: ComplaintModel[] = [];
+  complaintText: string = '';
   currentUser: UserModel | null = null;
-
 
   constructor(
     private router : Router,
@@ -42,15 +34,10 @@ export class IntroComponent {
       if (currentUserString) {
         this.currentUser = JSON.parse(currentUserString);
       }
-  
-      
     }
 
-  shareClicked(shareLink: string){
-
-  }
   browseClicked(){
-    this.router.navigate(['home'], {relativeTo: this.activatedRoute})
+    this.router.navigate(['home'], {relativeTo: this.activatedRoute});
   }
 
   giveComplaint(complaint: string){
@@ -58,24 +45,25 @@ export class IntroComponent {
     if(currentUserString){
         if(complaint){
           this.complainService.postAComplaint(complaint).subscribe(
-            (newComplaint: ComplaintModel) => {
-              alert("Your complaint has been sent! Thank You!")
-              this.complaintText = ""
+            () => {
+              alert("Your complaint has been sent! Thank You!");
+              this.complaintText = "";
             }
-          )
+          );
         }else{
-          alert("Complaint can not be empty!")
+          alert("Complaint can not be empty!");
         }
     }else{
-      alert("You need to login to give a complaint.")
-      this.complaintText = ''
+      alert("You need to login to give a complaint.");
+      this.complaintText = '';
     }
   }
+
   logoutClick(){
     const currentUserString = localStorage.getItem('currentUser');
     if (currentUserString) {
-      localStorage.removeItem('currentUser')
-      this.currentUser = null
+      localStorage.removeItem('currentUser');
+      this.currentUser = null;
       window.location.reload();
     }
   }

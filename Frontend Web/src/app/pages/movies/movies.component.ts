@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs';
 import { MovieService } from '../../services/movies.service';
 import { Movie } from '../../models/Movies';
 import { Observable } from 'rxjs';
 import LinkModel from 'src/app/models/Links';
-
 
 @Component({
   selector: 'app-movies',
@@ -15,12 +12,10 @@ import LinkModel from 'src/app/models/Links';
 export class MoviesComponent implements OnInit {
   categories = ['Trending', 'Top Rated', 'Most Popular'];
   movies: { category: string, data: Movie[] }[] = [];
-
-  home: LinkModel = {name: 'Home', url: '/home'}
-  moviess: LinkModel = {name: 'Movies', url: '/movies'}
-  tvshows: LinkModel = {name: 'TV Shows', url: '/tvshows'}
-  games: LinkModel = {name: 'Games', url: '/games'}
-
+  home: LinkModel = {name: 'Home', url: '/home'};
+  moviess: LinkModel = {name: 'Movies', url: '/movies'};
+  tvshows: LinkModel = {name: 'TV Shows', url: '/tvshows'};
+  games: LinkModel = {name: 'Games', url: '/games'};
   links: LinkModel[] = [this.home, this.moviess,this.tvshows, this.games];
 
   constructor(private movieService: MovieService) { }

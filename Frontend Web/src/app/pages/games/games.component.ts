@@ -12,16 +12,13 @@ export class GamesComponent implements OnInit {
 
   categories = ['New Releases', 'Best of the year', 'All time top'];
   gamess: { category: string, data: Game[] }[] = [];
-
-  home: LinkModel = {name: 'Home', url: '/home'}
-  moviess: LinkModel = {name: 'Movies', url: '/movies'}
-  tvshows: LinkModel = {name: 'TV Shows', url: '/tvshows'}
-  games: LinkModel = {name: 'Games', url: '/games'}
-
+  home: LinkModel = {name: 'Home', url: '/home'};
+  moviess: LinkModel = {name: 'Movies', url: '/movies'};
+  tvshows: LinkModel = {name: 'TV Shows', url: '/tvshows'};
+  games: LinkModel = {name: 'Games', url: '/games'};
   links: LinkModel[] = [this.home, this.moviess,this.tvshows, this.games];
 
   constructor(private gamesService: GamesService) { }
-
 
   ngOnInit(): void {
     this.categories.forEach(category => {
@@ -30,5 +27,4 @@ export class GamesComponent implements OnInit {
       });
     });
   }
-
 }

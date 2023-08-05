@@ -9,7 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
   templateUrl: './movie-detail.component.html',
   styleUrls: ['./movie-detail.component.scss']
 })
-export class MovieDetailComponent{
+export class MovieDetailComponent implements OnInit{
 
   id: number = 0;
   movie: Movie | null = null;
@@ -22,15 +22,17 @@ export class MovieDetailComponent{
     ngOnInit(): void{
       this.activatedRoute.params.subscribe(
         (params: Params) => {
-          this.id = params['movieData.id']
+
+          this.id = params['movieData.id'];
           if(this.id){
+            
             this.movieDetailService.getMovie(this.id).subscribe(
               (data: any) => {
-                this.movie = data
+                this.movie = data;
               }
-            )
+            );
           }
         }
-      )
+      );
     }
 }

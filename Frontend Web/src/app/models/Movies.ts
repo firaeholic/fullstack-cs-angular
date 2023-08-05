@@ -7,6 +7,6 @@ export interface Movie {
     genre_ids: number[];
     overview: string;
     popularity: number;
-    backdrop_path: string
+    backdrop_path: string;
   }
   
