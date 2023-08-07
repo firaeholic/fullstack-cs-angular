@@ -190,18 +190,6 @@ namespace YourNamespace
             return Ok(users);
         }
 
-/*        [HttpGet("/users/{userId}")]
-        public async Task<IActionResult> GetUserById(string userId)
-        {
-            var filter = Builders<User>.Filter.Eq(c => c.Id, ObjectId.Parse(userId));
-            var user = await _users.Find(filter).FirstOrDefaultAsync();
-            if (user == null)
-            {
-                return NotFound();
-            }
-            return Ok(user);
-        }*/
-
         [HttpPost("/users")]
         public async Task<IActionResult> CreateUser([FromBody] User user)
         {

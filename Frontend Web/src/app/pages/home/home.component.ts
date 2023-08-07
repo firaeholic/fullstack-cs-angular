@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit{
     this.categories.forEach(category => {
       this.movieService.getMovies(category).subscribe(data => {
         this.movies.push({ category, data: data.results });
-        console.log(data);
       });
     });
 
