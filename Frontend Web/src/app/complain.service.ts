@@ -9,10 +9,7 @@ import ComplaintModel from './models/Complaint';
 export class ComplainService {
 
   constructor(private apiConfigService: ApiConfigService) { }
-
-  getAllComplaints(): Observable<ComplaintModel[]>{
-    return this.apiConfigService.getComplaints();
-  }
+  
   postAComplaint(complaint: string): Observable<ComplaintModel>{
     const data = { 'complaintText': complaint };
     return this.apiConfigService.postComplaint('complaints', data);

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -16,7 +16,6 @@ export class RegisterComponent {
   
   constructor(
     private router : Router,
-    private activatedRoute: ActivatedRoute,
     private userService: UserService
   ) { }
   
@@ -28,19 +27,21 @@ export class RegisterComponent {
           this.router.navigate(['login']);
         }
       );
+      
     }else{
       alert("Fill all fields!");
     }
   }
+
   checkIfEmailExists(fullname: string, username: string, email: string, password: string) {
-    this.userService.emailExist(email).subscribe(
-      () => {
+    this.userService.checkIfEmailExists(email).subscribe({
+      next: () => {
         alert("Email already in use.");
       },
-       () => {
+      error:  () => {
           this.registerUser(fullname, username, email, password);
       }
-    );
+  });
   }
 }
 

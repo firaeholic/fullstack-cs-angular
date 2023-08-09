@@ -14,27 +14,23 @@ export class ApiConfigService {
     private httpClient: HttpClient
   ) { }
 
-  getComplaints(){
-    return  this.httpClient.get<ComplaintModel[]>(`${this.API_BASE_URL}/complaints`);
-  }
-
   postComplaint(url: string, data: object){
-    return  this.httpClient.post<ComplaintModel>(`${this.API_BASE_URL}/complaints`, data);
+    return  this.httpClient.post<ComplaintModel>(`${this.API_BASE_URL}/${url}`, data);
   }
 
-  getUser(url: string){
+  logUser(url: string){
     return  this.httpClient.get<UserModel>(`${this.API_BASE_URL}/${url}`);
   }
 
   registerUser(url: string, data: object){
-    return  this.httpClient.post<UserModel>(`${this.API_BASE_URL}/users`, data);
+    return  this.httpClient.post<UserModel>(`${this.API_BASE_URL}/${url}`, data);
   }
 
   deleteUser(url: string){
     return this.httpClient.delete(`${this.API_BASE_URL}/${url}`);
   }
 
-  emailExists(url: string){
+  checkIfEmailAlreadyExists(url: string){
     return this.httpClient.get<UserModel>(`${this.API_BASE_URL}/${url}`);
   }
 }

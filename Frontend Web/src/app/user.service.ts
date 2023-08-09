@@ -10,18 +10,21 @@ export class UserService {
 
   constructor(private apiConfigService: ApiConfigService) { }
 
-  getAUser(email: string, password: string): Observable<UserModel>{
-    return this.apiConfigService.getUser(`users/${email}/${password}`);
+  logAUser(email: string, password: string): Observable<UserModel>{
+    return this.apiConfigService.logUser(`users/${email}/${password}`);
   }
+
   registerAUser(fullname: string, username: string, email: string, password: string): Observable<UserModel>{
     const data = { 'Fullname': fullname, 'UserName': username, 'Email': email, 'Password': password };
     return this.apiConfigService.registerUser('users', data);
   }
+
   deleteAuser(email: string){
     return this.apiConfigService.deleteUser(`users/delete/${email}`);
   }
-  emailExist(email: string): Observable<UserModel> {
-    return this.apiConfigService.emailExists(`users/${email}`);
+  
+  checkIfEmailExists(email: string): Observable<UserModel> {
+    return this.apiConfigService.checkIfEmailAlreadyExists(`users/${email}`);
   }
 
 }

@@ -21,7 +21,7 @@ export class LoginComponent {
   }
 
   logUser(email: string, password: string){
-    this.userService.getAUser(email, password).subscribe({
+    this.userService.logAUser(email, password).subscribe({
       next: user => {
 
         localStorage.setItem('currentUser', JSON.stringify(user));
