@@ -3,5 +3,5 @@ export default class UserModel{
     fullName!: string;
     userName!: string;
     email!: string;
-    password!: string;
+    passwordHash!: string;
 }

@@ -12,7 +12,7 @@
             <input #usernameValue type="text" id="username" name="username" required>
             <label for="password">Password</label>
             <input #passwordValue type="password" id="password" name="password" required>
-            <button (click) = 'checkIfEmailExists(fullnameValue.value, usernameValue.value, emailValue.value, passwordValue.value)
+            <button (click) = 'checkIfUserExists(fullnameValue.value, usernameValue.value, emailValue.value, passwordValue.value)
             ' type="submit">Register</button>
             <input type="hidden" name="action" value="register">
         </form>

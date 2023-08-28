@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import LinkModel from 'src/app/models/Links';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ComplainService } from 'src/app/complain.service';
+import { ComplainService } from 'src/app/services/crud/complain.service';
 import ComplaintModel from 'src/app/models/Complaint';
 import UserModel from 'src/app/models/User';
 
