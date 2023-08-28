@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Text;
 
 namespace Backend_Web
 {
@@ -25,11 +26,15 @@ namespace Backend_Web
         [HttpPost("/users")]
         public async Task<IActionResult> CreateUser([FromBody] User user)
         {
-            if (string.IsNullOrWhiteSpace(user?.FullName) || string.IsNullOrWhiteSpace(user?.UserName) || string.IsNullOrWhiteSpace(user?.Email) || string.IsNullOrWhiteSpace(user?.Password))
+            if (string.IsNullOrWhiteSpace(user?.FullName) || string.IsNullOrWhiteSpace(user?.UserName) || string.IsNullOrWhiteSpace(user?.Email) || string.IsNullOrWhiteSpace(user?.PasswordHash))
             {
-                return BadRequest();
+                return BadRequest("Fill all fields!");
             }
             user.Id = ObjectId.GenerateNewId();
+            var hashingPassword = new HashingPassword();
+            var hashPass = hashingPassword.HashPassword(user.PasswordHash, out var salt);
+            user.PasswordHash = hashPass;
+            user.GeneratedSalt = Convert.ToBase64String(salt);
             await _users.InsertOneAsync(user);
             return Ok(user);
         }
@@ -41,35 +46,40 @@ namespace Backend_Web
             var result = await _users.DeleteOneAsync(filter);
             if (result.DeletedCount == 0)
             {
-                return NotFound();
+                return NotFound("User not found!");
             }
             return NoContent();
         }
 
         [HttpGet("/users/{email}/{password}")]
-        public async Task<IActionResult> CheckIfUserExists(string email, string password)
+        public async Task<IActionResult> LogAUser(string email, string password)
         {
             var filter = Builders<User>.Filter.And(
-                Builders<User>.Filter.Eq(u => u.Email, email),
-                Builders<User>.Filter.Eq(u => u.Password, password)
+                Builders<User>.Filter.Eq(u => u.Email, email)
             );
             var user = await _users.Find(filter).FirstOrDefaultAsync();
             if (user == null)
             {
-                return NotFound();
+                return NotFound("User does not exist");
+            }
+            var hashingPassword = new HashingPassword();
+            bool isPassCorrect = hashingPassword.VerifyPassword(password, user.PasswordHash, Convert.FromBase64String(user.GeneratedSalt));
+            if (!isPassCorrect)
+            {
+                return NotFound("Incorrect password!");
             }
             return Ok(user);
         }
         [HttpGet("/users/{email}")]
-        public async Task<IActionResult> CheckIfEmailExists(string email)
+        public async Task<IActionResult> CheckIfUserExists(string email)
         {
             var filter = Builders<User>.Filter.Eq(u => u.Email, email);
             var user = await _users.Find(filter).FirstOrDefaultAsync();
             if (user == null)
             {
-                return NotFound();
+                return NotFound("User not found!");
             }
-            return Ok(user);
+            return Ok();
         }
     }
 }

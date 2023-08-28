@@ -19,8 +19,11 @@ namespace Backend_Web
         [BsonElement("email")]
         public string? Email { get; set; }
 
-        [BsonElement("password")]
-        public string? Password { get; set; }
+        [BsonElement("passwordHash")]
+        public string? PasswordHash { get; set; }
+
+        [BsonElement("generatedSalt")]
+        public string? GeneratedSalt { get; set; }
 
     }
 }
